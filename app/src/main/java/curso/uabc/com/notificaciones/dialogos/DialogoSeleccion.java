@@ -1,10 +1,10 @@
 package curso.uabc.com.notificaciones.dialogos;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 
 public class DialogoSeleccion extends DialogFragment {
@@ -14,7 +14,7 @@ public class DialogoSeleccion extends DialogFragment {
 		final String[] items = {"Español", "Inglés", "Francés"};
 		
         AlertDialog.Builder builder = 
-        		new AlertDialog.Builder(getActivity());
+        		new androidx.appcompat.app.AlertDialog.Builder(getActivity());
         
         builder.setTitle("Selección")
         .setItems(items, new DialogInterface.OnClickListener() {

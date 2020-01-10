@@ -1,6 +1,6 @@
 package curso.uabc.com.notificaciones;
 import android.os.Bundle;
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ToastActivity extends Activity {
+public class ToastActivity extends AppCompatActivity {
 
     private Button btnDefecto = null;
     private Button btnGravity = null;

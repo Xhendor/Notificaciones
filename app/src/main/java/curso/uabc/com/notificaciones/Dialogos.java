@@ -1,7 +1,7 @@
 package curso.uabc.com.notificaciones;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBarActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -13,7 +13,7 @@ import curso.uabc.com.notificaciones.dialogos.DialogoPersonalizado;
 import curso.uabc.com.notificaciones.dialogos.DialogoSeleccion;
 
 
-public class Dialogos extends ActionBarActivity {
+public class Dialogos extends AppCompatActivity {
 
     private Button btnAlerta = null;
     private Button btnConfirmacion = null;

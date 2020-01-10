@@ -1,35 +1,43 @@
 package curso.uabc.com.notificaciones;
 
-    import android.os.Bundle;
-    import android.app.Activity;
-    import android.app.NotificationManager;
-    import android.app.PendingIntent;
-    import android.content.Context;
-    import android.content.Intent;
-    import android.graphics.drawable.BitmapDrawable;
-    import android.support.v4.app.NotificationCompat;
-    import android.view.Menu;
-    import android.view.View;
-    import android.view.View.OnClickListener;
-    import android.widget.Button;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
+import android.os.Bundle;
 
-    public class BarraDeEstados extends Activity {
+import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+import curso.uabc.com.notificaciones.util.NotificationUtils;
+
+public class BarraDeEstados extends AppCompatActivity {
 
         private Button btnNotificacion;
 
         private static final int NOTIF_ALERTA_ID = 1;
+    private NotificationUtils mNotificationUtils;
 
-        @Override
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_barra_de_estados);
+            mNotificationUtils = new NotificationUtils(this);
 
             btnNotificacion = (Button)findViewById(R.id.BtnNotif);
 
             btnNotificacion.setOnClickListener(new OnClickListener() {
                 public void onClick(View v) {
                     NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(BarraDeEstados.this)
+                           new NotificationCompat.Builder(BarraDeEstados.this, NotificationUtils.ANDROID_CHANNEL_ID)
                                     .setSmallIcon(android.R.drawable.stat_sys_warning)
                                     .setLargeIcon((((BitmapDrawable)getResources()
                                             .getDrawable(R.drawable.ic_launcher)).getBitmap()))
